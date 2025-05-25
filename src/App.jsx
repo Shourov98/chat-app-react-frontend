@@ -1,18 +1,31 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import Navbar from './components/Navbar'
+import { BrowserRouter, Route, Router, Routes } from 'react-router-dom'
+import SignupPage from './pages/SignupPage'
+import LoginPage from './pages/LoginPage'
+import SettingsPage from './pages/SettingsPage'
+import ProfilePage from './pages/ProfilePage'
+import HomePage from './pages/HomePage'
 //import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <h2 className='bg-gray-800 text-white py-5 px-3.5'>Hello Tailwind 4</h2>
+    <div>
+      <Navbar />
+
+      <div className="mt-16">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+        </Routes>
       </div>
-      
-    </>
+    </div>
   )
 }
 
